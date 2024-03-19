@@ -1,6 +1,294 @@
 package com.javarush.island.vrubleuski.configuration;
 
+import com.javarush.island.vrubleuski.entity.animal.*;
+import com.javarush.island.vrubleuski.entity.plant.Plant;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class ConfigIsland {
     public static final int WIDTH = 100;
     public static final int HEIGHT = 20;
+    public static final Map<Class<?>, Integer> SETTINGS_COUNT_ANIMALS_ONE_LOCATION;
+
+    static {
+        SETTINGS_COUNT_ANIMALS_ONE_LOCATION = new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 30);
+            put(Constrictor.class, 30);
+            put(Fox.class, 30);
+            put(Bear.class, 5);
+            put(Eagle.class, 20);
+            put(Horse.class, 20);
+            put(Deer.class, 20);
+            put(Rabbit.class, 150);
+            put(Mouse.class, 500);
+            put(Goat.class, 140);
+            put(Sheep.class, 140);
+            put(Boar.class, 50);
+            put(Buffalo.class, 10);
+            put(Duck.class, 200);
+            put(Caterpillar.class, 1000);
+            put(Plant.class, 200);
+
+        }};
+    }
+    public static final Map<Class<?>, Map<Class<?>, Integer>> SETTINGS_BEHAVIOR_ANIMALS = new HashMap<>();
+
+    static {
+        SETTINGS_BEHAVIOR_ANIMALS.put(Wolf.class, new HashMap<Class<?>, Integer>() {{
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 10);
+            put(Deer.class, 15);
+            put(Rabbit.class, 60);
+            put(Mouse.class, 80);
+            put(Goat.class, 60);
+            put(Sheep.class, 70);
+            put(Boar.class, 15);
+            put(Buffalo.class, 10);
+            put(Duck.class, 40);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 0);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Constrictor.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Fox.class, 15);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 20);
+            put(Mouse.class, 40);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 10);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 0);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Fox.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 70);
+            put(Mouse.class, 90);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 60);
+            put(Caterpillar.class, 40);
+            put(Plant.class, 0);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Bear.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 80);
+            put(Fox.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 40);
+            put(Deer.class, 80);
+            put(Rabbit.class, 80);
+            put(Mouse.class, 90);
+            put(Goat.class, 70);
+            put(Sheep.class, 70);
+            put(Boar.class, 50);
+            put(Buffalo.class, 20);
+            put(Duck.class, 10);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 0);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Eagle.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 10);
+            put(Bear.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 90);
+            put(Mouse.class, 90);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 80);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 0);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Horse.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Deer.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Rabbit.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Mouse.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 90);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Goat.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Sheep.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Boar.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 50);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 90);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Buffalo.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Duck.class, 0);
+            put(Caterpillar.class, 0);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Duck.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Caterpillar.class, 90);
+            put(Plant.class, 100);
+        }});
+        SETTINGS_BEHAVIOR_ANIMALS.put(Caterpillar.class, new HashMap<Class<?>, Integer>() {{
+            put(Wolf.class, 0);
+            put(Constrictor.class, 0);
+            put(Fox.class, 0);
+            put(Bear.class, 0);
+            put(Eagle.class, 0);
+            put(Horse.class, 0);
+            put(Deer.class, 0);
+            put(Rabbit.class, 0);
+            put(Mouse.class, 0);
+            put(Goat.class, 0);
+            put(Sheep.class, 0);
+            put(Boar.class, 0);
+            put(Buffalo.class, 0);
+            put(Duck.class, 0);
+            put(Plant.class, 100);
+        }});
+    }
 }
