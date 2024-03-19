@@ -1,23 +1,33 @@
 package com.javarush.island.vrubleuski.entity.animal;
 
-public class Fox extends Predator{
+import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
+import com.javarush.island.vrubleuski.entity.area.Location;
+
+public class Fox extends Predator implements Eatable {
+    private final ConfigAnimal fox;
+
+    public Fox(Location location) {
+        super(location);
+        this.fox = ConfigAnimal.FOX;
+    }
+
     @Override
-    protected void eat() {
+    public void eat() {
 
     }
 
     @Override
-    protected void move() {
+    public void move() {
 
     }
 
     @Override
-    protected void chooseDirection() {
+    public void chooseDirection() {
 
     }
 
     @Override
-    protected void breed() {
+    public void breed() {
 
     }
 }

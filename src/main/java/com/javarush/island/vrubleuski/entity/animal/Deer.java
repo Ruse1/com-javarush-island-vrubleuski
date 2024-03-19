@@ -1,23 +1,32 @@
 package com.javarush.island.vrubleuski.entity.animal;
 
-public class Deer extends Herbivore {
+import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
+import com.javarush.island.vrubleuski.entity.area.Location;
+
+public class Deer extends Herbivore implements Eatable {
+    private final ConfigAnimal deer;
+    public Deer(Location location) {
+        super(location);
+        this.deer = ConfigAnimal.DEER;
+    }
+
     @Override
-    protected void eat() {
+    public void eat() {
 
     }
 
     @Override
-    protected void move() {
+    public void move() {
 
     }
 
     @Override
-    protected void chooseDirection() {
+    public void chooseDirection() {
 
     }
 
     @Override
-    protected void breed() {
+    public void breed() {
 
     }
 }

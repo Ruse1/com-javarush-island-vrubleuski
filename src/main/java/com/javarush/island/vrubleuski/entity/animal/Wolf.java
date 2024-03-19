@@ -1,23 +1,34 @@
 package com.javarush.island.vrubleuski.entity.animal;
 
+import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
+import com.javarush.island.vrubleuski.entity.area.Location;
+
+
 public class Wolf extends Predator {
+    private final ConfigAnimal wolf;
+
+    public Wolf(Location location) {
+        super(location);
+        this.wolf = ConfigAnimal.WOLF;
+    }
+
     @Override
-    protected void eat() {
+    public void eat() {
 
     }
 
     @Override
-    protected void move() {
+    public void move() {
 
     }
 
     @Override
-    protected void chooseDirection() {
+    public void chooseDirection() {
 
     }
 
     @Override
-    protected void breed() {
+    public void breed() {
 
     }
 }

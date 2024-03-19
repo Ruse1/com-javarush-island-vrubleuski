@@ -9,29 +9,6 @@ import java.util.Map;
 public class ConfigIsland {
     public static final int WIDTH = 100;
     public static final int HEIGHT = 20;
-    public static final Map<Class<?>, Integer> SETTINGS_COUNT_ANIMALS_ONE_LOCATION;
-
-    static {
-        SETTINGS_COUNT_ANIMALS_ONE_LOCATION = new HashMap<Class<?>, Integer>() {{
-            put(Wolf.class, 30);
-            put(Constrictor.class, 30);
-            put(Fox.class, 30);
-            put(Bear.class, 5);
-            put(Eagle.class, 20);
-            put(Horse.class, 20);
-            put(Deer.class, 20);
-            put(Rabbit.class, 150);
-            put(Mouse.class, 500);
-            put(Goat.class, 140);
-            put(Sheep.class, 140);
-            put(Boar.class, 50);
-            put(Buffalo.class, 10);
-            put(Duck.class, 200);
-            put(Caterpillar.class, 1000);
-            put(Plant.class, 200);
-
-        }};
-    }
     public static final Map<Class<?>, Map<Class<?>, Integer>> SETTINGS_BEHAVIOR_ANIMALS = new HashMap<>();
 
     static {

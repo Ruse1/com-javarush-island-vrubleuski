@@ -1,23 +1,32 @@
 package com.javarush.island.vrubleuski.entity.animal;
 
-public class Rabbit extends Herbivore {
+import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
+import com.javarush.island.vrubleuski.entity.area.Location;
+
+public class Rabbit extends Herbivore implements Eatable {
+    private final ConfigAnimal rabbit;
+    public Rabbit(Location location) {
+        super(location);
+        this.rabbit = ConfigAnimal.RABBIT;
+    }
+
     @Override
-    protected void eat() {
+    public void eat() {
 
     }
 
     @Override
-    protected void move() {
+    public void move() {
 
     }
 
     @Override
-    protected void chooseDirection() {
+    public void chooseDirection() {
 
     }
 
     @Override
-    protected void breed() {
+    public void breed() {
 
     }
 }

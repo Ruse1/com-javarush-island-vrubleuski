@@ -1,12 +1,14 @@
 package com.javarush.island.vrubleuski.configuration;
 
 public enum ConfigPlant {
-    PLANT("🌿",0.01);
+    PLANT("🌿", 200, 0.01);
     private String image;
+    private int countInLocation;
     private double weight;
 
-    ConfigPlant(String image, double weight) {
+    ConfigPlant(String image, int countInLocation, double weight) {
         this.image = image;
+        this.countInLocation = countInLocation;
         this.weight = weight;
     }
 
@@ -16,5 +18,9 @@ public enum ConfigPlant {
 
     public double getWeight() {
         return weight;
+    }
+
+    public int getCountInLocation() {
+        return countInLocation;
     }
 }

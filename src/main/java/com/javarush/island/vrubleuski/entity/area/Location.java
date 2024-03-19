@@ -28,4 +28,12 @@ public class Location {
     public int getCountPlants() {
         return plants.size();
     }
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public List<Plant> getPlants() {
+        return plants;
+    }
 }
