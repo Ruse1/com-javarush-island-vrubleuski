@@ -5,19 +5,32 @@ import com.javarush.island.vrubleuski.entity.animal.*;
 import com.javarush.island.vrubleuski.entity.area.Island;
 import com.javarush.island.vrubleuski.entity.area.Location;
 
-import java.util.List;
-
 public class App {
+    public final static Island island = new Island(ConfigIsland.WIDTH, ConfigIsland.HEIGHT);
+
     public static void main(String[] args) {
-        Island island = new Island(ConfigIsland.WIDTH, ConfigIsland.HEIGHT);
-        for (int i = 0; i < island.getLocations().length; i++) {
-            for (int j = 0; j < island.getLocations()[i].length; j++) {
-                island.getLocations()[i][j] = new Location();
-            }
+        //МОЙ ПРОЕКТ ЕЩЁ В РАБОТЕ!!!
+        //МОЖНО НАЖАТЬ СТАРТ, ЧТОБЫ ЧУТЬ_ЧУТЬ ПРОТЕСТИРОВАТЬ))
+        Location location = new Location();
+        location.getAnimals().add(new Horse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Rabbit(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Rabbit(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Mouse(location));
+        location.getAnimals().add(new Horse(location));
+        Wolf wolf = new Wolf(location);
+        for (int i = 0; i < 14; i++) {
+            wolf.eat();
         }
-        List<Animal> animals = island.getLocations()[0][0].getAnimals();
-        Animal animal = new Wolf(island.getLocations()[0][0]);
-        System.out.println(animal.);
+
+        System.out.println(location.getAnimals());
     }
 
 }

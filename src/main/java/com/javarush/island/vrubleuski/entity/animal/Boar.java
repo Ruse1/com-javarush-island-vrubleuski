@@ -4,10 +4,9 @@ import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
 import com.javarush.island.vrubleuski.entity.area.Location;
 
 public class Boar extends Herbivore implements Eatable {
-    private final ConfigAnimal boar;
     public Boar(Location location) {
         super(location);
-        this.boar = ConfigAnimal.BOAR;
+        this.animal = ConfigAnimal.BOAR;
     }
 
     @Override
@@ -17,11 +16,6 @@ public class Boar extends Herbivore implements Eatable {
 
     @Override
     public void move() {
-
-    }
-
-    @Override
-    public void chooseDirection() {
 
     }
 

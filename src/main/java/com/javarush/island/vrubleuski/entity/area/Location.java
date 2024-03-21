@@ -9,13 +9,17 @@ import java.util.List;
 public class Location {
     private List<Animal> animals;
     private List<Plant> plants;
+    private int numberLocation;
+    private static int amountLocation = 0;
 
     public Location() {
         this.animals = new ArrayList<>();
         this.plants = new ArrayList<>();
+        amountLocation++;
+        numberLocation = amountLocation;
     }
 
-    public int getCountAnimals(Class<?> clazz) {
+    public int getCountAnimals(Class<? extends Animal> clazz) {
         int count = 0;
         for (Animal animal : animals) {
             if (animal.getClass() == clazz) {
@@ -36,4 +40,12 @@ public class Location {
     public List<Plant> getPlants() {
         return plants;
     }
+
+    public int getNumberLocation() {
+        return numberLocation;
+    }
+    public void getEatableAnimals (){
+
+    }
+
 }

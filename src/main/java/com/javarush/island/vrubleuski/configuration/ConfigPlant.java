@@ -1,7 +1,7 @@
 package com.javarush.island.vrubleuski.configuration;
 
 public enum ConfigPlant {
-    PLANT("🌿", 200, 0.01);
+    PLANT("🌿", 200, 1);
     private String image;
     private int countInLocation;
     private double weight;

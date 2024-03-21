@@ -12,4 +12,8 @@ public class Plant implements Eatable {
         this.location = location;
         this.plant = ConfigPlant.PLANT;
     }
+
+    public ConfigPlant getPlant() {
+        return plant;
+    }
 }

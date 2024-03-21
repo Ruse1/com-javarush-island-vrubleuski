@@ -21,11 +21,6 @@ public class Deer extends Herbivore implements Eatable {
     }
 
     @Override
-    public void chooseDirection() {
-
-    }
-
-    @Override
     public void breed() {
 
     }
