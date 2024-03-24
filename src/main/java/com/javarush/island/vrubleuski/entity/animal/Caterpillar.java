@@ -9,7 +9,8 @@ public class Caterpillar extends Herbivore implements Eatable {
     public Caterpillar(Location location) {
         super(location);
         this.animal = ConfigAnimal.CATERPILLAR;
-        this.behavior = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS.get(this.getClass());
+        this.behaviorWithAnimals = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_ANIMALS.get(this.getClass());
+        this.behaviorWithPlants = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_PLANTS.get(this.getClass());
     }
 
     @Override

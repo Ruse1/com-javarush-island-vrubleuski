@@ -9,7 +9,8 @@ public class Constrictor extends Predator implements Eatable {
     public Constrictor(Location location) {
         super(location);
         this.animal = ConfigAnimal.CONSTRICTOR;
-        this.behavior = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS.get(this.getClass());
+        this.behaviorWithAnimals = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_ANIMALS.get(this.getClass());
+        this.behaviorWithPlants = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_PLANTS.get(this.getClass());
     }
 
     @Override

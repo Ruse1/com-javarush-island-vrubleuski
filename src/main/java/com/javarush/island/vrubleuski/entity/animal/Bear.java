@@ -9,7 +9,8 @@ public class Bear extends Predator {
     public Bear(Location location) {
         super(location);
         this.animal = ConfigAnimal.BEAR;
-        this.behavior = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS.get(this.getClass());
+        this.behaviorWithAnimals = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_ANIMALS.get(this.getClass());
+        this.behaviorWithPlants = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_PLANTS.get(this.getClass());
     }
 
     @Override

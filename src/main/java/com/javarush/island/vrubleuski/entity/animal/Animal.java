@@ -2,6 +2,7 @@ package com.javarush.island.vrubleuski.entity.animal;
 
 import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
 import com.javarush.island.vrubleuski.entity.area.Location;
+import com.javarush.island.vrubleuski.entity.plant.Plant;
 import com.javarush.island.vrubleuski.service.Direction;
 import com.javarush.island.vrubleuski.service.Message;
 import com.javarush.island.vrubleuski.service.ServiceIsland;
@@ -11,7 +12,8 @@ import java.util.Map;
 public abstract class Animal {
     protected Location location;
     protected ConfigAnimal animal;
-    protected Map<Class<?>, Integer> behavior;
+    protected Map<Class<?>, Integer> behaviorWithAnimals;
+    protected Map<Class<?>, Integer> behaviorWithPlants;
     protected double currentSaturation;
 
     public Animal(Location location) {
@@ -25,9 +27,9 @@ public abstract class Animal {
                 Animal animal = location.getAnimals().get(i);
                 if (animal != null) {
                     Class<?> currentAnimal = animal.getClass();
-                    if (behavior.containsKey(currentAnimal) && behavior.get(currentAnimal) != 0) {
-                        int result = ServiceIsland.randomIntFromTo(behavior.get(currentAnimal), 100);
-                        if (result <= behavior.get(currentAnimal)) {
+                    if (behaviorWithAnimals.containsKey(currentAnimal) && behaviorWithAnimals.get(currentAnimal) != 0) {
+                        int result = ServiceIsland.randomIntFromTo(0, 100);
+                        if (result <= behaviorWithAnimals.get(currentAnimal)) {
                             Animal killedAnimal = location.getAnimals().get(i);
                             setSaturation(killedAnimal.animal.getWeight());
                             Message.killAnimal(this, killedAnimal);
@@ -40,7 +42,27 @@ public abstract class Animal {
                 }
             }
         }
+        if (isHungry(currentSaturation)) {
+            for (int i = 0; i < location.getPlants().size(); i++) {
+                Plant plant = location.getPlants().get(i);
+                if (plant != null) {
+                    Class<?> currentPlant = plant.getClass();
+                    if (behaviorWithPlants.containsKey(currentPlant) && behaviorWithPlants.get(currentPlant) != 0) {
+                        int result = ServiceIsland.randomIntFromTo(0, 100);
+                        if (result <= behaviorWithPlants.get(currentPlant)) {
+                            setSaturation(plant.getPlant().getWeight());
+                            Message.eatenPlant(this, plant);
+                            location.getPlants().set(i, null);
+                            if (!isHungry(currentSaturation)) {
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+
     public abstract void move();
 
     public Direction chooseDirection() {
@@ -66,7 +88,7 @@ public abstract class Animal {
         if (weightFood > animal.getFullSaturation()) {
             currentSaturation = animal.getFullSaturation();
         } else {
-            currentSaturation = (double) Math.round((weightFood + currentSaturation) * 100) / 100;
+            currentSaturation = (double) Math.round((weightFood + currentSaturation) * 100) / 100; //округление до сотых
             if (currentSaturation >= animal.getFullSaturation()) {
                 currentSaturation = animal.getFullSaturation();
             }
