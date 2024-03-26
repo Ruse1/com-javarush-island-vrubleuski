@@ -1,8 +1,7 @@
 package com.javarush.island.vrubleuski.service;
 
-import com.javarush.island.vrubleuski.entity.animal.Animal;
-import com.javarush.island.vrubleuski.entity.plant.Plant;
-
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ServiceIsland {
@@ -11,15 +10,14 @@ public class ServiceIsland {
     public static int randomIntFromTo(int from, int to) {
         return random.nextInt(from, to);
     }
+
     public static int randomInt(int bound) {
         return random.nextInt(bound);
     }
 
-    public static void dieAnimal(Animal animal) {
-        animal = null;
+    public static <T> void removeNull(List<T> list) {
+        list.removeAll(Collections.singleton(null));
     }
-    public static void diePlant(Plant plant) {
-        plant = null;
-    }
+
 
 }

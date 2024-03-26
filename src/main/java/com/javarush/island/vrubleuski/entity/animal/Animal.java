@@ -12,8 +12,8 @@ import java.util.Map;
 public abstract class Animal {
     protected Location location;
     protected ConfigAnimal animal;
-    protected Map<Class<?>, Integer> behaviorWithAnimals;
-    protected Map<Class<?>, Integer> behaviorWithPlants;
+    protected Map<Class<? extends Animal>, Integer> behaviorWithAnimals;
+    protected Map<Class<? extends Plant>, Integer> behaviorWithPlants;
     protected double currentSaturation;
 
     public Animal(Location location) {
@@ -97,5 +97,19 @@ public abstract class Animal {
 
     protected boolean isHungry(double saturation) {
         return saturation >= animal.getFullSaturation() ? false : true;
+    }
+
+    protected void removeExcess() {
+        if (location.getCountAnimals(this.getClass()) > animal.getCountInLocation()) {
+            int quantity = 0;
+            for (int i = 0; i < location.getAnimals().size(); i++) {
+                if (location.getAnimals().get(i).getClass() == this.getClass()) {
+                    quantity++;
+                }
+                if (quantity > getAnimalConfig().getCountInLocation()) {
+                    location.getAnimals().set(i, null);
+                }
+            }
+        }
     }
 }
