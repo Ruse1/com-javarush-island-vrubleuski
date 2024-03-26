@@ -1,6 +1,8 @@
 package com.javarush.island.vrubleuski.entity.animal;
 
+import com.javarush.island.vrubleuski.App;
 import com.javarush.island.vrubleuski.configuration.ConfigAnimal;
+import com.javarush.island.vrubleuski.configuration.ConfigIsland;
 import com.javarush.island.vrubleuski.entity.area.Location;
 import com.javarush.island.vrubleuski.entity.plant.Plant;
 import com.javarush.island.vrubleuski.service.Direction;
@@ -62,10 +64,75 @@ public abstract class Animal {
             }
         }
     }
+    public void move() {
+        Direction direction = chooseDirection();
+        int indexAnimal = location.getAnimals().indexOf(this);
+        Animal currentAnimal = location.getAnimals().get(indexAnimal);
+        for (int i = 0; i < App.island.getLocations().length; i++) {
+            for (int j = 0; j < App.island.getLocations()[i].length; j++) {
+                if (location.getNumberLocation() == App.island.getLocations()[i][j].getNumberLocation()) {
+                    int speed = animal.getSpeed();
+                    if (direction == Direction.UP) {
+                        int shift = j - speed;
+                        System.out.println(shift);
+                        if (shift >= 0) {
+                            if (App.island.getLocations()[i][shift].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[i][shift].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        } else {
+                            if (App.island.getLocations()[i][ConfigIsland.HEIGHT + j - speed].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[i][ConfigIsland.HEIGHT + j - speed].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        }
+                    } else if (direction == Direction.DOWN) {
+                        int shift = j + speed;
+                        if (shift < ConfigIsland.HEIGHT) {
+                            if (App.island.getLocations()[i][shift].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[i][shift].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        } else {
+                            if (App.island.getLocations()[i][shift - ConfigIsland.HEIGHT].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[i][shift - ConfigIsland.HEIGHT].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        }
+                    } else if (direction == Direction.RIGHT) {
+                        int shift = i + speed;
+                        if (shift < ConfigIsland.WIDTH) {
+                            if (App.island.getLocations()[shift][j].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[shift][j].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        } else {
+                            if (App.island.getLocations()[shift - ConfigIsland.WIDTH][j].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[shift - ConfigIsland.WIDTH][j].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        }
+                    } else if (direction == Direction.LEFT) {
+                        int shift = i - speed;
+                        System.out.println(shift);
+                        if (shift >= 0) {
+                            if (App.island.getLocations()[shift][j].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[shift][j].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        } else {
+                            if (App.island.getLocations()[ConfigIsland.WIDTH + i - speed][j].getCountAnimals(this.getClass()) < animal.getCountInLocation()) {
+                                App.island.getLocations()[ConfigIsland.WIDTH + i - speed][j].getDeserterAnimals().add(currentAnimal);
+                                location.getAnimals().set(indexAnimal, null);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-    public abstract void move();
-
-    public Direction chooseDirection() {
+    protected Direction chooseDirection() {
         int result = ServiceIsland.randomInt(Direction.values().length);
         return Direction.values()[result];
     }

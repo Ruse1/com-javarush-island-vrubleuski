@@ -14,11 +14,6 @@ public class Mouse extends Herbivore implements Eatable {
     }
 
     @Override
-    public void move() {
-
-    }
-
-    @Override
     public void breed() {
         int count = location.getCountAnimals(this.getClass());
         int random = ServiceIsland.randomIntFromTo(6, 12);

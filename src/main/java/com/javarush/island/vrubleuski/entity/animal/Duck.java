@@ -12,10 +12,6 @@ public class Duck extends Herbivore implements Eatable {
         this.behaviorWithAnimals = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_ANIMALS.get(this.getClass());
         this.behaviorWithPlants = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_PLANTS.get(this.getClass());
     }
-    @Override
-    public void move() {
-
-    }
 
     @Override
     public void breed() {

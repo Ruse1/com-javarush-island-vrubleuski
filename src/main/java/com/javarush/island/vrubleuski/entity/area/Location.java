@@ -11,6 +11,8 @@ public class Location {
     private List<Animal> animals;
     private List<Plant> plants;
     private List<Animal> newbornAnimals;
+    private List<Animal> deserterAnimals;
+
     private int numberLocation;
     private static int amountLocation = 0;
 
@@ -18,6 +20,7 @@ public class Location {
         this.animals = new ArrayList<>();
         this.plants = new ArrayList<>();
         this.newbornAnimals = new ArrayList<>();
+        this.deserterAnimals = new ArrayList<>();
         amountLocation++;
         numberLocation = amountLocation;
     }
@@ -63,5 +66,9 @@ public class Location {
 
     public List<Animal> getNewbornAnimals() {
         return newbornAnimals;
+    }
+
+    public List<Animal> getDeserterAnimals() {
+        return deserterAnimals;
     }
 }

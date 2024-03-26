@@ -15,11 +15,6 @@ public class Wolf extends Predator {
         this.behaviorWithPlants = ConfigIsland.SETTINGS_BEHAVIOR_ANIMALS_WITH_PLANTS.get(this.getClass());
     }
     @Override
-    public void move() {
-
-    }
-
-    @Override
     public void breed() {
         int count = location.getCountAnimals(this.getClass());
         int random = ServiceIsland.randomIntFromTo(3, 8);

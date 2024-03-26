@@ -15,11 +15,6 @@ public class Fox extends Predator implements Eatable {
     }
 
     @Override
-    public void move() {
-
-    }
-
-    @Override
     public void breed() {
         int count = location.getCountAnimals(this.getClass());
         int random = ServiceIsland.randomIntFromTo(5, 10);

@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConfigIsland {
-    public static final int WIDTH = 100;
-    public static final int HEIGHT = 20;
+    public static final int WIDTH = 10;
+    public static final int HEIGHT = 5;
     public static final Map<Class<? extends Animal>, Map<Class<? extends Animal>, Integer>> SETTINGS_BEHAVIOR_ANIMALS_WITH_ANIMALS = new HashMap<>();
     public static final Map<Class<? extends Animal>, Map<Class<? extends Plant>, Integer>> SETTINGS_BEHAVIOR_ANIMALS_WITH_PLANTS = new HashMap<>();
 
